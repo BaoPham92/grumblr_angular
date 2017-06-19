@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Angular</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
-  </head>
-  <body>
-    <h1>Grumblr</h1>
-  </body>
+<html ng-app="mine">
+
+<head>
+	<title>Bao's Grubmlr</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ 	<script type="text/javascript" src="main.js"></script>
+</head>
+
+<body ng-controller='mineController as vm'>
+
+<h2>List Of Things To Do</h2>
+
+<div ng-repeat='mine in vm.mines | filter: {completed: false}'>
+	<p>{{$index + 1}}. {{mine.name}} - {{mine.completed}} </p>
+</div>
+
+<!-- <div ng-repeat='mine in vm.lists | filter: {completed: false'>
+	
+</div> -->
+
+<div>
+<input type="text" ng-model ="vm.newMine">
+	<!-- <button ng-click ="vm.addMine()">Add things to do. --></button>
+		<p>User input: {{vm.newMine}}</p>
+</div>
+
+<!-- <div>
+	<input type="text" ng-model ="vm.newMine">
+		<button ng-click ="vm.addMine()">Add</button>
+			<p>Title input:</p>
+</div> -->
+
+</body>
 </html>
